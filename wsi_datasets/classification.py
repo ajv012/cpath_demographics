@@ -53,12 +53,8 @@ class WSI_Classification_Dataset(Dataset):
         self.weights = [0] * int(N)  
 
         for idx in range(N):   
-            y = self.data.loc[idx, "race"]  
-
-            if isinstance(y, float):
-                self.weights[idx] = weight_per_race["W"]
-            else:                    
-                self.weights[idx] = weight_per_race[y]
+            y = self.data.loc[idx, "race"]                 
+            self.weights[idx] = weight_per_race[y]
 
         self.weights = torch.DoubleTensor(self.weights)
 
