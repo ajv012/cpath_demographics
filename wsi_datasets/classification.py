@@ -50,8 +50,6 @@ class WSI_Classification_Dataset(Dataset):
             weight = N / race_count
             weight_per_race[race] = weight
 
-        weight_per_race["N"] = weight_per_race["W"]
-
         self.weights = [0] * int(N)  
 
         for idx in range(N):   
